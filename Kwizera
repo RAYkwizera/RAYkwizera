@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Authentication Flow</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: green;
+    }
+
+    input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: green;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: darkgreen;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .link {
+      display: block;
+      text-align: center;
+      margin: 10px 0;
+      color: blue;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>RAY</h1>
+
+  <!-- Login Form -->
+  <div class="container" id="login-form">
+    <h2>Login</h2>
+    <input type="text" placeholder="Phone or Email" id="login-email" />
+    <input type="password" placeholder="Password" id="login-password" />
+    <button onclick="login()">Login</button>
+    <span class="link" onclick="showForgotPassword()">Forgot Password?</span>
+    <span class="link" onclick="showCreateAccount()">Create Account</span>
+  </div>
+
+  <!-- Create Account Form -->
+  <div class="container hidden" id="create-account-form">
+    <h2>Create Account</h2>
+    <input type="text" placeholder="Phone or Email" id="create-email" />
+    <input type="text" placeholder="First Name" id="first-name" />
+    <input type="text" placeholder="Second Name" id="second-name" />
+    <input type="date" id="dob" />
+    <input type="password" placeholder="Password" id="create-password" />
+    <input type="password" placeholder="Re-enter Password" id="reenter-password" />
+    <button onclick="register()">Register</button>
+  </div>
+
+  <!-- Forgot Password Form -->
+  <div class="container hidden" id="forgot-password-form">
+    <h2>Forgot Password</h2>
+    <input type="text" placeholder="Enter Phone or Email" id="forgot-email" />
+    <button onclick="resetPassword()">Reset Password</button>
+  </div>
+
+  <!-- Verification Code Form -->
+  <div class="container hidden" id="verification-form">
+    <h2>Enter Verification Code</h2>
+    <input type="text" placeholder="Enter Verification Code" id="verification-code" />
+    <button onclick="verifyCode()">Verify</button>
+  </div>
+
+  <script>
+    function login() {
+      alert('Login process initiated!');
+      // Add login logic here
+    }
+
+    function showCreateAccount() {
+      document.getElementById('login-form').classList.add('hidden');
+      document.getElementById('create-account-form').classList.remove('hidden');
+    }
+
+    function showForgotPassword() {
+      document.getElementById('login-form').classList.add('hidden');
+      document.getElementById('forgot-password-form').classList.remove('hidden');
+    }
+
+    function register() {
+      alert('Account creation process initiated!');
+      document.getElementById('create-account-form').classList.add('hidden');
+      document.getElementById('verification-form').classList.remove('hidden');
+    }
+
+    function resetPassword() {
+      alert('Password reset process initiated!');
+      document.getElementById('forgot-password-form').classList.add('hidden');
+      document.getElementById('verification-form').classList.remove('hidden');
+    }
+
+    function verifyCode() {
+      alert('Verification complete! Redirecting to home page...');
+      // Simulate home page redirection
+      window.location.href = "home.html";
+    }
+  </script>
+</body>
+</html> 
